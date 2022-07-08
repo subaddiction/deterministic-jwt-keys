@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "bip32": "^3.0.1",
+    "bip39": "^3.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "key-encoder": "^2.0.3",
+    "tiny-secp256k1": "^2.2.1"
+  }
+}
