@@ -14,7 +14,13 @@ if(args[0]){
 	var seed = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about";
 }
 
-const derivationPath = "m/84'/0'/0'/0/0'";
+if(args[1]){
+	var index = args[1].toString();
+} else {
+	var index = '0';
+}
+
+const derivationPath = "m/84'/0'/0'/0/"+index;
 const keypair = bip32.fromSeed(bip39.mnemonicToSeedSync(seed)).derivePath(derivationPath);
 
 console.log("\n");
@@ -22,13 +28,13 @@ console.log("\n");
 
 // TODO optionally output to file
 var rawPrivateKey = keypair.privateKey.toString('hex');
-console.log("rawPrivateKey", rawPrivateKey);
-console.log("\n");
+//console.log("rawPrivateKey", rawPrivateKey);
+//console.log("\n");
 
 // TODO optionally output to file
 var rawPublicKey = keypair.publicKey.toString('hex');
-console.log("rawPublicKey", rawPublicKey);
-console.log("\n");
+//console.log("rawPublicKey", rawPublicKey);
+//console.log("\n");
 
 
 const KeyEncoder = require('key-encoder').default;
@@ -38,16 +44,28 @@ var pemPrivateKey = keyEncoder.encodePrivate(rawPrivateKey, 'raw', 'pem');
 var pemPublicKey = keyEncoder.encodePublic(rawPublicKey, 'raw', 'pem');
 
 
+console.log("raw privateKey");
+console.log(rawPrivateKey);
+console.log("\n");
+
+console.log("pem privateKey");
 console.log(pemPrivateKey);
 console.log("\n");
 
 
+console.log("raw publiceKey");
+console.log(rawPublicKey);
+console.log("\n");
+
+console.log("pem publiceKey");
 console.log(pemPublicKey);
 console.log("\n");
 
 // TODO separate test script
+/*****
 console.log("Test encoding and verifying token");
 console.log("\n");
+
 
 var token = jwt.sign({
 	name: 'John Doe',
@@ -66,3 +84,4 @@ try{
 } catch(e){
 	console.log(e);
 }
+*****/
