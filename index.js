@@ -16,12 +16,14 @@ if(args[0]){
 
 if(args[1]){
 	var index = args[1].toString();
+	var derivationPath = "m/84'/0'/0'/0/"+index;
+	var keypair = bip32.fromSeed(bip39.mnemonicToSeedSync(seed)).derivePath(derivationPath);
+	
 } else {
-	var index = '0';
+	var keypair = bip32.fromSeed(bip39.mnemonicToSeedSync(seed));
 }
 
-const derivationPath = "m/84'/0'/0'/0/"+index;
-const keypair = bip32.fromSeed(bip39.mnemonicToSeedSync(seed)).derivePath(derivationPath);
+console.log(keypair);
 
 console.log("\n");
 

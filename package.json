@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "bip32": "^3.0.1",
+    "bip32": "^3.1.0",
     "bip39": "^3.0.4",
     "bip44gpg": "github:taelfrinn/bip44extension",
     "bs58": "^5.0.0",
